@@ -1,4 +1,8 @@
 import 'package:fin_guru/screens/homeScreen.dart';
+import 'package:fin_guru/screens/sections/consultancy.dart';
+import 'package:fin_guru/screens/sections/govt_schemes.dart';
+import 'package:fin_guru/screens/sections/investment.dart';
+import 'package:fin_guru/screens/sections/tax.dart';
 import 'package:fin_guru/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,12 +21,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // initialRoute: 'splash',
-      // routes: {
-      //   'splash': (context) => const SplashScreen(),
-      //   'home': (context) => const HomeScreen(),
-      // },
-      home: const HomeScreen(),
+      //initialRoute: 'splash',
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => const HomeScreen(),
+        'splash': (context) => const SplashScreen(),
+        'govt_schemes': (context) => const GovtSchemes(),
+        'tax': (context) => const Tax(),
+        'consultancy': (context) => const Consultancy(),
+        'investment': (context) => const Investment(),
+      },
     );
   }
 }

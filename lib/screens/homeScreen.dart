@@ -1,4 +1,6 @@
+import 'package:fin_guru/constants/custom_appbar.dart';
 import 'package:fin_guru/constants/text.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'size_configs.dart';
 
@@ -9,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      appBar: CustomAppBar(preferredHeight: getProportionateScreenHeight(150)),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -16,9 +19,9 @@ class HomeScreen extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(
                   getProportionateScreenWidth(200),
-                  getProportionateScreenHeight(100),
+                  getProportionateScreenHeight(30),
                   getProportionateScreenWidth(200),
-                  getProportionateScreenHeight(100)),
+                  getProportionateScreenHeight(50)),
               height: getProportionateScreenHeight(900),
               width: getProportionateScreenWidth(1600),
               decoration: BoxDecoration(
@@ -116,8 +119,546 @@ class HomeScreen extends StatelessWidget {
               "Explore Our Services",
               style: darkheadingStyle,
             ),
+            //Gaping
+            SizedBox(
+              height: getProportionateScreenHeight(80),
+            ),
+            //make 4 sections
             Row(
-              children: [],
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                //1st service
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(50),
+                      right: getProportionateScreenWidth(25)),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: FlipCard(
+                      fill: Fill.fillBack,
+                      direction: FlipDirection.HORIZONTAL,
+                      side: CardSide.FRONT,
+                      front: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(450),
+                        width: getProportionateScreenWidth(250),
+                        child: Column(
+                          children: [
+                            //Image
+                            Image.asset(
+                              "assets/images/sec1.png",
+                              width: getProportionateScreenWidth(200),
+                              height: getProportionateScreenHeight(300),
+                            ),
+                            //Description
+                            Text(
+                              "Government Schemes",
+                              style: homeCardStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                      back: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(400),
+                        width: getProportionateScreenWidth(200),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: getProportionateScreenWidth(20),
+                                  vertical: getProportionateScreenHeight(30)),
+                              child: Text(
+                                "Dive into the various schemes offered by the Government of India for Women",
+                                style: backHomeCardDarkStyle,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(100),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenHeight(40),
+                                    vertical: getProportionateScreenWidth(20),
+                                  ),
+                                  child:
+                                      Text("Explore", style: backHomeCardStyle),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, 'govt_schemes');
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                //Spacing
+                SizedBox(
+                  width: getProportionateScreenWidth(50),
+                ),
+                //2nd section
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(50),
+                      right: getProportionateScreenWidth(25)),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: FlipCard(
+                      fill: Fill.fillBack,
+                      direction: FlipDirection.HORIZONTAL,
+                      side: CardSide.FRONT,
+                      front: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(450),
+                        width: getProportionateScreenWidth(250),
+                        child: Column(
+                          children: [
+                            //Image
+                            Image.asset(
+                              "assets/images/sec2.png",
+                              width: getProportionateScreenWidth(200),
+                              height: getProportionateScreenHeight(300),
+                            ),
+                            //Description
+                            Text(
+                              "Investment Schemes",
+                              style: homeCardStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                      back: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(400),
+                        width: getProportionateScreenWidth(200),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: getProportionateScreenWidth(20),
+                                  vertical: getProportionateScreenHeight(30)),
+                              child: Text(
+                                "Want to invest your money in the right way? Explore the various alternatives and invest wisely!",
+                                style: backHomeCardDarkStyle,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(30),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenHeight(40),
+                                    vertical: getProportionateScreenWidth(20),
+                                  ),
+                                  child:
+                                      Text("Explore", style: backHomeCardStyle),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, 'investment');
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                //Spacing
+                SizedBox(
+                  width: getProportionateScreenWidth(50),
+                ),
+                //3rd section
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(50),
+                      right: getProportionateScreenWidth(25)),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: FlipCard(
+                      fill: Fill.fillBack,
+                      direction: FlipDirection.HORIZONTAL,
+                      side: CardSide.FRONT,
+                      front: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(450),
+                        width: getProportionateScreenWidth(250),
+                        child: Column(
+                          children: [
+                            //Image
+                            Image.asset(
+                              "assets/images/sec3.png",
+                              width: getProportionateScreenWidth(200),
+                              height: getProportionateScreenHeight(300),
+                            ),
+                            //Description
+                            Text(
+                              "Taxation",
+                              style: homeCardStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                      back: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(400),
+                        width: getProportionateScreenWidth(200),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: getProportionateScreenWidth(20),
+                                  vertical: getProportionateScreenHeight(30)),
+                              child: Text(
+                                "Paying taxes is important for the growth of our country. But confused? Don't worry we have got you covered!",
+                                style: backHomeCardDarkStyle,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(30),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenHeight(40),
+                                    vertical: getProportionateScreenWidth(20),
+                                  ),
+                                  child:
+                                      Text("Explore", style: backHomeCardStyle),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, 'tax');
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                //Spacing
+                SizedBox(
+                  width: getProportionateScreenWidth(50),
+                ),
+                //4th section
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(50),
+                      right: getProportionateScreenWidth(25)),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: FlipCard(
+                      fill: Fill.fillBack,
+                      direction: FlipDirection.HORIZONTAL,
+                      side: CardSide.FRONT,
+                      front: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(450),
+                        width: getProportionateScreenWidth(250),
+                        child: Column(
+                          children: [
+                            //Image
+                            Image.asset(
+                              "assets/images/sec4.png",
+                              width: getProportionateScreenWidth(200),
+                              height: getProportionateScreenHeight(300),
+                            ),
+                            //Description
+                            Text(
+                              "Financial Consultancy",
+                              style: homeCardStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                      back: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Color.fromRGBO(52, 131, 39, 1),
+                              Color.fromRGBO(60, 150, 45, 1),
+                              Color.fromRGBO(75, 188, 57, 1),
+                              Color.fromRGBO(75, 188, 57, 0.5),
+                              Color.fromARGB(255, 186, 220, 179),
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        height: getProportionateScreenHeight(400),
+                        width: getProportionateScreenWidth(200),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: getProportionateScreenWidth(20),
+                                  vertical: getProportionateScreenHeight(30)),
+                              child: Text(
+                                "Still confused?\nHave a 1:1 conversation with our experts!!",
+                                style: backHomeCardDarkStyle,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(140),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenHeight(40),
+                                    vertical: getProportionateScreenWidth(20),
+                                  ),
+                                  child:
+                                      Text("Explore", style: backHomeCardStyle),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, 'consultancy');
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                //Spacing
+                SizedBox(
+                  width: getProportionateScreenWidth(50),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(50),
+            ),
+            //Reviews
+            SizedBox(
+              height: getProportionateScreenHeight(50),
+            ),
+            Text(
+              "Customer Reviews",
+              style: darkheadingStyle,
+            ),
+            //FAQ
+            SizedBox(
+              height: getProportionateScreenHeight(100),
+            ),
+            Text(
+              "Frequently Asked Questions (FAQ)",
+              style: darkheadingStyle,
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(200),
             ),
           ],
         ),
